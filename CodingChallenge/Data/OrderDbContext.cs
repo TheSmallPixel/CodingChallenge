@@ -17,7 +17,7 @@ namespace CodingChallenge.Data
             {
                 Id = 1,
                 CompanyCode = 1,
-                Date = DateTime.Now,
+                Date = DateTime.Parse("05/05/2005"),
                 Products =
                 new List<Product>() {
                 new Product() { Id = 0, Name = "Pc", Description = "Hp", StockQuantity = 20, UnitPrice = 500 }

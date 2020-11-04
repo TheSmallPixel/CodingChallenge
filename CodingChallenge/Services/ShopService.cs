@@ -46,39 +46,44 @@ namespace CodingChallenge.Service
             return ordersContext.Orders;
         }
 
-        public IList<TotalOrder> GetAllOrdersWithTotal()
+        public IList<Order> GetAllOrdersWithTotal()
         {
-            return ordersContext.Orders.Cast<TotalOrder>().Select(x=> OrderTax(x)).ToList();
+            return ordersContext.Orders.Select(x => OrderTax(x)).ToList();
         }
 
-        public TotalOrder CreateNewOrder(Order newOrder)
+        public Order CreateNewOrder(Order newOrder)
         {
             if (newOrder != null && newOrder.Products.Count > 0)
             {
-                if (HasNotMadeAnOrderToday(newOrder) && InStock(newOrder.Products) && ((TotalOrder)newOrder).GetTotal >= 100)
+                if (HasNotMadeAnOrderToday(newOrder) && InStock(newOrder.Products) && newOrder.GetTotal >= 100)
                 {
                     if (PlaceOrder(newOrder))
                     {
-                        return OrderTax((TotalOrder)newOrder);
+                        //faking database index
+                        var id = ordersContext.Orders.Max(x => x.Id) + 1;
+                        newOrder.Id = id;
+                        ordersContext.Orders.Add(newOrder);
+                        return OrderTax(newOrder);
                     }
                 }
+
             }
             return null;
         }
 
-        private TotalOrder OrderTax(TotalOrder order)
+        private Order OrderTax(Order order)
         {
-            if (order.CompanyCode == 1)
+            switch (order.CompanyCode)
             {
-                order.Total = (order.GetTotal * 0.02f / 100f) + order.GetTotal;
-            }
-            else if (order.CompanyCode == 2)
-            {
-                order.Total = 1 + order.GetTotal;
-            }
-            else
-            {
-                order.Total = order.GetTotal;
+                case 1:
+                    order.Total = (order.GetTotal * 0.02f / 100f) + order.GetTotal;
+                    break;
+                case 2:
+                    order.Total = 1 + order.GetTotal;
+                    break;
+                default:
+                    order.Total = order.GetTotal;
+                    break;
             }
             return order;
         }

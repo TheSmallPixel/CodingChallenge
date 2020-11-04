@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.438
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingChallenge", "CodingChallenge\CodingChallenge.csproj", "{69DA9290-9D3D-4F65-BC1B-5BA0E6999517}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodingChallenge", "CodingChallenge\CodingChallenge.csproj", "{69DA9290-9D3D-4F65-BC1B-5BA0E6999517}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestCodingChallenge", "XUnitTestCodingChallenge\XUnitTestCodingChallenge.csproj", "{1872ABD2-14EF-4558-93B8-38DF5DEFAF62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{69DA9290-9D3D-4F65-BC1B-5BA0E6999517}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69DA9290-9D3D-4F65-BC1B-5BA0E6999517}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69DA9290-9D3D-4F65-BC1B-5BA0E6999517}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1872ABD2-14EF-4558-93B8-38DF5DEFAF62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1872ABD2-14EF-4558-93B8-38DF5DEFAF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1872ABD2-14EF-4558-93B8-38DF5DEFAF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1872ABD2-14EF-4558-93B8-38DF5DEFAF62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

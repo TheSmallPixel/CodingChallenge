@@ -22,14 +22,14 @@ namespace CodingChallenge.Controllers
 
         [Authorize]
         [HttpGet("getall")]
-        public ActionResult<List<TotalOrder>> GetAllOrders(int page, int pageSize)
+        public ActionResult<List<Order>> GetAllOrders(int page, int pageSize)
         {
             return shop.GetAllOrdersWithTotal().Skip(page * pageSize).Take(pageSize).ToList();
         }
 
         [Authorize]
         [HttpPost("create")]
-        public ActionResult<TotalOrder> CreateNewOrders(Order newOrder)
+        public ActionResult<Order> CreateNewOrders(Order newOrder)
         {
             var result =  shop.CreateNewOrder(newOrder);
             if(result != null)

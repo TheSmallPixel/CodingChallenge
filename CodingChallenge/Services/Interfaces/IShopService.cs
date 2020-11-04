@@ -5,10 +5,10 @@ namespace CodingChallenge.Service
 {
     public interface IShopService
     {
-        TotalOrder CreateNewOrder(Order newOrder);
+        Order CreateNewOrder(Order newOrder);
         Product CreateProduct(Product product);
         IList<Order> GetAllOrders();
-        IList<TotalOrder> GetAllOrdersWithTotal();
+        IList<Order> GetAllOrdersWithTotal();
         IList<Product> GetAllProducts();
         Product GetProduct(int id);
     }
