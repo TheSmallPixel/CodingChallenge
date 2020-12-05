@@ -35,6 +35,7 @@ namespace CodingChallenge
             //fake Context
             services.AddSingleton<IProductsDbContext, ProductsDbContext>();
             services.AddSingleton<IOrderDbContext, OrderDbContext>();
+           
             services.AddMvc();
         }
 
